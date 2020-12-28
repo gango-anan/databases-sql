@@ -1,4 +1,4 @@
---SELECT QUIZ
+--QUIZ 1
 SELECT name, population
   FROM world
   WHERE population BETWEEN 1000000 AND 1250000;
@@ -23,3 +23,27 @@ SELECT name, area, population
 SELECT name, population/area
   FROM world
   WHERE name IN ('China', 'Nigeria', 'France', 'Australia');
+
+--QUIZ 2
+SELECT name
+  FROM world
+  WHERE name LIKE 'U%';
+
+SELECT population
+  FROM world
+  WHERE name = 'United Kingdom';
+
+SELECT continent 
+  FROM world 
+  WHERE 'name' = 'France';
+
+SELECT name, population
+  FROM world
+  WHERE continent IN ('Europe', 'Asia');
+
+SELECT name FROM world
+  WHERE name IN ('Cuba', 'Togo');
+
+SELECT name FROM world
+  WHERE continent = 'South America'
+    AND population > 40000000;
