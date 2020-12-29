@@ -97,10 +97,30 @@ SELECT COUNT(name) FROM bbc WHERE population < 150000;
 
 SELECT AVG(population) FROM bbc WHERE name IN ('Poland', 'Germany', 'Denmark');
 
- SELECT region, SUM(population)/SUM(area) AS density FROM bbc GROUP BY region;
+SELECT region, SUM(population)/SUM(area) AS density FROM bbc GROUP BY region;
 
- SELECT name, population/area AS density FROM bbc WHERE population = (SELECT MAX(population) FROM bbc);
+SELECT name, population/area AS density FROM bbc WHERE population = (SELECT MAX(population) FROM bbc);
 
 SELECT region, SUM(area) FROM bbc 
-  GROUP BY region
-  HAVING SUM(area)<= 20000000
+  GROUP BY region HAVING SUM(area)<= 20000000;
+
+--QUIZ 6
+game  JOIN goal ON (id=matchid);
+
+matchid, teamid, player, gtime, id, teamname, coach;
+
+SELECT player, teamid, COUNT(*) FROM game JOIN goal ON matchid = id
+  WHERE (team1 = "GRE" OR team2 = "GRE") AND teamid != 'GRE' GROUP BY player, teamid;
+
+SELECT DISTINCT teamid, mdate FROM goal JOIN game on (matchid=id)
+  WHERE mdate = '9 June 2012';
+
+SELECT DISTINCT player, teamid FROM game JOIN goal ON matchid = id
+  WHERE stadium = 'National Stadium, Warsaw' AND (team1 = 'POL' OR team2 = 'POL') AND teamid != 'POL';
+
+SELECT DISTINCT player, teamid, gtime FROM game JOIN goal ON matchid = id
+  WHERE stadium = 'Stadion Miejski (Wroclaw)' AND (( teamid = team2 AND team1 != 'ITA') OR ( teamid = team1 AND team2 != 'ITA'));
+
+SELECT teamname, COUNT(*) FROM eteam
+  JOIN goal ON teamid = id GROUP BY teamname HAVING COUNT(*) < 3;
+
