@@ -5,4 +5,4 @@ This repository contains sql script with basic queries which demonstrate the use
 - SUM()
 - COUNT()
 - NULL 
-- And the most commonly used cluases such as ORDER BY, SORT BY, and WHERE.
+- And the most commonly used clauses such as ORDER BY, SORT BY, and WHERE.
