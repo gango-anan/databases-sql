@@ -1,2 +1,8 @@
-# databases-sql
-This repository contains a sql script of the basic sql commands
+# DATABASES - SQL
+This repository contains sql script with basic queries which demonstrate the use of
+- SELECT
+- JOIN
+- SUM()
+- COUNT()
+- NULL 
+- And the most commonly used cluases such as ORDER BY, SORT BY, and WHERE.
