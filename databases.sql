@@ -147,3 +147,30 @@ connect the primary keys of movie and actor via the casting table
 
 SELECT title, yr FROM movie, casting, actor
   WHERE name='Robert De Niro' AND movieid=movie.id AND actorid=actor.id AND ord = 3;
+
+--QUIZ 8
+SELECT teacher.name, dept.name FROM teacher LEFT OUTER JOIN dept ON (teacher.dept = dept.id);
+
+SELECT dept.name FROM teacher JOIN dept ON (dept.id = teacher.dept) WHERE teacher.name = 'Cutflower';
+
+SELECT dept.name, COUNT(teacher.name) FROM teacher RIGHT JOIN dept ON dept.id = teacher.dept GROUP BY dept.name;
+
+SELECT name, dept, COALESCE(dept, 0) AS result FROM teacher on teacher;
+
+SELECT name,
+       CASE WHEN phone = 2752 THEN 'two'
+            WHEN phone = 2753 THEN 'three'
+            WHEN phone = 2754 THEN 'four'
+            END AS digit
+  FROM teacher;
+
+SELECT name, 
+      CASE 
+       WHEN dept 
+        IN (1) 
+        THEN 'Computing' 
+       ELSE 'Other' 
+      END 
+  FROM teacher;
+
+  
